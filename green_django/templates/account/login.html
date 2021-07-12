@@ -1,6 +1,27 @@
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
+{% extends 'pages/base.html' %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<div class="container center">
+    <img src="https://i.ibb.co/jRBTTF1/green-tea.png" alt="green-tea" border="0" height="50px" style="padding-top: 24px;">
+    <div class="row">
+        <div class="col s12">
+            <p class="center">Smart Agriculture System</p>
+        </div>
+        <form class="col s12" method="post">
+            <div class="row">
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                <div class="input-field col s12">
+                    <input id="id_login" type="email" name="login" required>
+                    <label for="id_login">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="id_password" type="password" name="password" required>
+                    <label for="id_password">Password</label>
+                </div>
+                <button class="btn waves-effect waves-light right" type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
