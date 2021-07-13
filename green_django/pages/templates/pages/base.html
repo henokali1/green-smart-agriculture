@@ -16,17 +16,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
         <style type="text/css">
-        	.btn {
-        		background-color: #4CAF50;
-        		color: white;
-        	}
+            .btn {
+            background-color: #4CAF50;
+            color: white;
+            }
         </style>
     </head>
     <body style="margin: 0; padding-bottom: 80px;">
-       <!--  <nav class="green" style="padding:0px 10px; position: fixed; position: absolute; bottom: 0; left: 0;"> -->
-       	<nav class="green" style="overflow: hidden; position: fixed; bottom: 0; width: 100%; z-index:100;">
+        <!--  <nav class="green" style="padding:0px 10px; position: fixed; position: absolute; bottom: 0; left: 0;"> -->
+        <nav class="green" style="overflow: hidden; position: fixed; bottom: 0; width: 100%; z-index:100;">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
+                <a href="/dashboard" class="brand-logo"><i class="material-icons">home</i></a>
                 <a href="#" class="sidenav-trigger" data-target="mobile-nav">
                 <i class="material-icons">menu</i>
                 </a>
@@ -45,9 +45,9 @@
             {% block side_nav_li %}
             {% endblock %}
             {% if user.is_authenticated %}
-                <li><a href="/accounts/logout/">Logout</a></li>
+            <li><a href="/accounts/logout/">Logout</a></li>
             {% else %}
-                <li><a href="/accounts/login/">Login</a></li>
+            <li><a href="/accounts/login/">Login</a></li>
             {% endif %}
         </ul>
         {% block body %}
