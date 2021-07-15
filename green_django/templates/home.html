@@ -9,6 +9,7 @@
         </div>
         {% if user.is_authenticated %}
         Hi {{ user.email }}!
+        <script>window.location.href = '/dashboard';</script>
         <a href="{% url 'account_logout' %}">Log Out</a>
         <h5>Dashboard Here</h5>
         {% else %}
