@@ -1,80 +1,12 @@
 {% extends 'pages/base.html' %}
 {% load static %}
-{% block title %}t{% endblock %}
+{% block title %}Real Time Sensor Data{% endblock %}
 {% block nav_li_links %}
 {% endblock %}
 {% block css_files %}
-<link rel="stylesheet" type="text/css" href="{% static 'pages/css/t.css' %}">
-<script type="text/javascript" src="{% static 'pages/js/t.js' %}"></script>
 <script type="text/javascript" src="{% static 'pages/js/r.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'pages/css/sensor-real-time.css' %}">
 <script type="text/javascript" src="{% static 'pages/js/justgage.js' %}"></script>
-<style>
-        .gauge_container {
-            text-align: left;
-            height: 450px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            margin: 40px 5px 0 5px;
-        }
-
-        .gauge {
-            width: 300px;
-            height: 200px;
-            display: inline-block;
-            -webkit-transform: translate3d(0, 0, 0);
-        }
-
-        .controls {
-            text-align: left;
-        }
-
-        li {
-            padding: 10px 0 0 0;
-        }
-
-        li.refresh {
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-
-        label {
-            font-family: Arial;
-            display: inline-block;
-            width: 65px;
-            margin: 0 0 5px 0;
-            text-align: right;
-            padding: 5px;
-            color: #919191;
-        }
-
-        input {
-            font-weight: bold;
-            font-size: 13px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            margin: 5px;
-        }
-
-        input[disabled=disabled] {
-            font-weight: normal;
-            font-size: 11px;
-            padding: 0 0 0 10px;
-            margin: 0px;
-            color: #777777;
-            border-color: transparent;
-            background: #fff;
-        }
-
-        a:link.button,
-        a:active.button,
-        a:visited.button,
-        a:hover.button {
-            margin: 0px 5px 0 2px;
-            padding: 7px 13px;
-        }
-    </style>
 {% endblock %}
 {% block side_nav_li %}
 {% endblock %}
@@ -96,108 +28,10 @@
         <div class="col s6">
             <div class="center" id="gg5" style="width: 200px; height: 150px;"></div>
         </div>
-
     </div>
-    <a href="#" id="gg1_refresh" class="btn">Random Refresh</a>
+    <a href="#" id="gg1_refresh" class="btn">Random Data</a>
 </div>
 {% endblock body %}
-
 {% block script %}
-    <script>
-        /** Random integer  */
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        document.addEventListener("DOMContentLoaded", function (event) {
-            var gg1 = new JustGage({
-                id: "gg1",
-                value: 50,
-                min: 0,
-                max: 100,
-                title: "Target",
-                label: "Air Temperature",
-                pointer: true,
-                textRenderer: function (val) {
-                    return val + "°C"
-                }
-                // onAnimationEnd: function () {
-                //     console.log('f: onAnimationEnd()');
-                // }
-            });
-
-            var gg2 = new JustGage({
-                id: "gg2",
-                value: 50,
-                min: 0,
-                max: 100,
-                title: "Target",
-                label: "Soil Temperature",
-                pointer: true,
-                textRenderer: function (val) {
-                    return val + "°C"
-                }
-                // onAnimationEnd: function () {
-                //     console.log('f: onAnimationEnd()');
-                // }
-            });
-
-            var gg3 = new JustGage({
-                id: "gg3",
-                value: 50,
-                min: 0,
-                max: 100,
-                title: "Target",
-                label: "Humidity",
-                pointer: true,
-                textRenderer: function (val) {
-                    return val + "%"
-                }
-                // onAnimationEnd: function () {
-                //     console.log('f: onAnimationEnd()');
-                // }
-            });
-
-            var gg4 = new JustGage({
-                id: "gg4",
-                value: 50,
-                min: 0,
-                max: 100,
-                title: "Target",
-                label: "Air Pressure",
-                pointer: true,
-                textRenderer: function (val) {
-                    return val + "Pa"
-                }
-                // onAnimationEnd: function () {
-                //     console.log('f: onAnimationEnd()');
-                // }
-            });
-
-            var gg5 = new JustGage({
-                id: "gg5",
-                value: 50,
-                min: 0,
-                max: 100,
-                title: "Target",
-                label: "Soil Moisture",
-                pointer: true,
-                textRenderer: function (val) {
-                    return val
-                }
-                // onAnimationEnd: function () {
-                //     console.log('f: onAnimationEnd()');
-                // }
-            });
-
-            document.getElementById('gg1_refresh').addEventListener('click', function () {
-                gg1.refresh(getRandomInt(0, 100));
-                gg2.refresh(getRandomInt(0, 100));
-                gg3.refresh(getRandomInt(0, 100));
-                gg4.refresh(getRandomInt(0, 100));
-                gg5.refresh(getRandomInt(0, 100));
-                return false;
-            });
-        });
-    </script>
+<script type="text/javascript" src="{% static 'pages/js/sensor-real-time.js' %}"></script>
 {% endblock  %}

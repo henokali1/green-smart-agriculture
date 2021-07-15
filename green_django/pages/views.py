@@ -21,9 +21,15 @@ def dashboard(request):
 	args = {'dashboard': Dashboard.objects.all()}
 	return render(request, 'pages/dashboard.html', args)
 
+@login_required
 def sensor_real_time(request):
 	args = {}
 	return render(request, 'pages/sensor-real-time.html', args)
+
+@login_required
+def settings(request):
+	args = {}
+	return render(request, 'pages/settings.html', args)
 
 def t(request):
 	args = {'dashboard': Dashboard.objects.all()}
