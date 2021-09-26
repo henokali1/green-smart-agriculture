@@ -72,23 +72,22 @@ pump_notification_sent = False
 lights_notification_sent = False
 thread_running = True
 manual_ctrl = False
-last_notification = '.'
-last_notification_ts = 0.0
+# last_notification = '.'
+# last_notification_ts = 0.0
 
 
 def send_push_notification(val):
-    global last_notification
-    global last_notification_ts
-    tm_diff = time.time()-last_notification_ts
-    condition = ((val != last_notification) and (tm_diff > 10))
-    print(f'last_notification: {last_notification}, last_notification_ts: {last_notification_ts}, tm_diff: {tm_diff}, conditoin: {condition}...............................................................')
-    r=''
-    if condition:
-        r = requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(val))
-        last_notification = val
-        last_notification_ts = time.time()
+    # global last_notification
+    # global last_notification_ts
+    # tm_diff = time.time()-last_notification_ts
+    # condition = ((val != last_notification) and (tm_diff > 10))
+    # r=''
+    # if condition:
+    #     r = requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(val))
+    #     last_notification = val
+    #     last_notification_ts = time.time()
     # time.sleep(15)
-    return r
+    return requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(val))
 
 def read_soil_temp_raw():
     f = open(device_file, 'r')
