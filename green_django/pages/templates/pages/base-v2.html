@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Link Favicon -->
+        <link rel="shortcut icon" href="https://i.ibb.co/jRBTTF1/green-tea.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'pages/css/style.css' %}">
+        {% block link %}{% endblock %}
+        <style>
+            .tit{
+            font-family: 'Bebas Neue', cursive;
+            font-size: xx-large;
+            }
+        </style>
+        <title>{% block title %}{% endblock %}</title>
+        {% block style %}{% endblock %}
+    </head>
+    <body>
+        <h4 style="text-align: center; margin-bottom: 0px; margin-top: 0px;" class="tit">GREEN</h4>
+        <img width="50px" style="width: 100%; margin-bottom: 0px; padding-bottom: 0px;" src="{% static 'pages/imgs/1.jpeg' %}" alt=""><br><br><br>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            {% if user.is_authenticated %}
+            <a href="/">Home</a>
+            <a href="/mission/">Mission</a>
+            <a href="/telemetry/">Telemetry</a>
+            <a href="/location/">Location</a>
+            <a href="/ctrl/">CTRL</a>
+            <a href="{% url 'account_logout' %}">Log Out</a>
+            {% else %}
+            <a href="{% url 'account_login' %}">Log In</a> 
+            <a href="{% url 'account_signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
+        <span style="font-size:30px;cursor:pointer; margin-top: 0px;" onclick="openNav()">&#9776;</span>
+        <img height="80px" src="{% static 'pages/imgs/2.jpeg' %}" style="position: fixed; bottom: 0px; right: 0px; margin-right: 20px;">
+        {% block body %}
+        {% endblock %}
+        <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+              document.getElementById("mySidenav").style.marginTop = "48%";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+        {% block script %}
+        {% endblock %}
+    </body>
+</html>

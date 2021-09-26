@@ -1,6 +1,59 @@
-<h2>Sign Up</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Link Favicon -->
+        <link rel="shortcut icon" href="https://i.ibb.co/jRBTTF1/green-tea.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style>
+            .app-button{
+            margin:0 20px;
+            display:inline-block;
+            }
+            .row{
+            text-align:center;
+            /*the same margin which is every button have, it is for small screen, and if you have many buttons.*/
+            margin-left:-20px;
+            margin-right:-20px;
+            }
+            .tit{
+            font-family: 'Bebas Neue', cursive;
+            font-size: xx-large;
+            }
+        </style>
+        <title>Login</title>
+    </head>
+    <body>
+        <h4 style="text-align: center; margin-bottom: 0px; margin-top: 0px;" class="tit">GREEN</h4>
+        <img style="width: 100%; margin-bottom: 0px; padding-bottom: 0px;" src="{% static 'pages/imgs/1.jpeg' %}" alt=""><br><br><br>
+        <h3 style="text-align: center; margin-bottom: 0px; margin-top: 0px;" class="tit">Registration</h3><br><br>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_email">Username: </label>
+            <input type="email" name="email" placeholder="E-mail address" required="" id="id_email">
+            <br>
+            <br>
+            <label for="ph_num">Phone Number: </label>
+            <input type="tel" name="ph_num" placeholder="Phone Number" required="" id="ph_num">
+            <br>
+            <br>
+            <label for="id_password1">Password:</label>
+            <input type="password" name="password1" placeholder="Password" required="" id="id_password1">
+            <br>
+            <br>
+            <div class="row">
+                <input type="submit" class="app-button" value="Cancel">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+
+        <script>
+            M.toast({html: `{{message}}`, displayLength: 6000})
+        </script>
+    </body>
+</html>

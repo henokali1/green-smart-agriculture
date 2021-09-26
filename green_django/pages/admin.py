@@ -6,3 +6,5 @@ admin.site.site_title = "Admin Portal"
 
 
 admin.site.register(Dashboard)
+admin.site.register(Detail)
+admin.site.register(SensorHisData)

@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var gg4 = new JustGage({
         id: "gg4",
-        value: 50,
-        min: 0,
-        max: 100,
+        value: 700,
+        min: 300,
+        max: 1100,
         title: "Target",
         label: "Air Pressure",
         pointer: true,
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         gg1.refresh(getRandomInt(0, 100));
         gg2.refresh(getRandomInt(0, 100));
         gg3.refresh(getRandomInt(0, 100));
-        gg4.refresh(getRandomInt(0, 100));
+        gg4.refresh(getRandomInt(300, 1100));
         gg5.refresh(getRandomInt(0, 100));
         return false;
     });
